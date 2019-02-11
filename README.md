@@ -39,7 +39,7 @@ attempt to read the credentials from `~/.aws/credentials`.
 
 To launch an OCP cluster, run:
 ```
-$ ansible-playbook launch-ocp-cluster.yml --extra-vars="@config/defaults.yml"
+$ ansible-playbook launch-ocp-cluster.yml
 ```
 
 This will take a long time... potentially 30-45 minutes.
@@ -60,7 +60,7 @@ time.
 If you wish to launch an Ark Server that uses a real S3 bucket, you must first
 get credentials for the bucket:
 ```
-$ ansible-playbook create-aws-bucket-creds.yml
+$ ansible-playbook create-aws-bucket-creds.yml -e awsRegion=us-east-2
 ```
 
 Then launch the Ark Sever with `provider` set to `aws` and a specified
@@ -102,7 +102,7 @@ As a test application, you can run a playbook that creates Nginx with a route
 and creates an Ark backup:
 
 ```
-$ ansible-playbook create-ark.yml
+$ ansible-playbook create-nginx.yml
 ```
 
 ## Simulate DR scenario and restore Nginx from backup
